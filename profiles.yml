@@ -1,0 +1,12 @@
+dbt_tutorial_with_pagila_db: # Profile name
+  target: daredevil # Default target. Usually named 'dev', but let's have a funnier name.
+  outputs:
+    daredevil:
+      type: postgres
+      user: "{{ env_var('DBT_POSTGRESQL_USER') }}"
+      pass: "{{ env_var('DBT_POSTGRESQL_PASSWORD') }}"
+      dbname: "{{ env_var('DBT_POSTGRESQL_DATABASE_NAME') }}"
+      host: localhost
+      port: 5432
+      schema: daredevilschema # Default name of the schema (a database in the database to keep it simple) where outputs of models will be stored.
+      threads: 1
