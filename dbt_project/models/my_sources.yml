@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: my_pagila_db_source
+    database: "{{ env_var('DBT_POSTGRESQL_DATABASE_NAME') }}"
+    schema: "{{ env_var('DBT_POSTGRESQL_SCHEMA_NAME') }}"
+    tables:
+      - name: film 
+      - name: inventory
+      - name: rental
+      - name: store

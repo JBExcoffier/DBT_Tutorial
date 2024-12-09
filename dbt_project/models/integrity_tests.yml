@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: count_films_from_sources
+    columns:
+      - name: count_films
+        data_tests:
+          - not_null
+  - name: rentals_by_store_id_from_model_ref
+    columns:
+      - name: store_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              to: source('my_pagila_db_source', 'store')
+              field: store_id
+      - name: count_rentals
+        data_tests:
+          - not_null
+          - all_column_values_strictly_above_threshold
+          - all_column_values_strictly_above_threshold:
+              threshold: 10000000

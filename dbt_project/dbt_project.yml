@@ -1,0 +1,18 @@
+name: 'dbt_tutorial_with_pagila_db_project'
+version: '1.0.0'
+
+profile: 'dbt_tutorial_with_pagila_db'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:       
+  - "target"
+
+models:
+  dbt_tutorial_with_pagila_db_project: # Reuse the project name to ensure that everything set by default is well applied.
+    +materialized: table # By default outputs will be actual tables and not simple views.
+    +schema: main # Default suffix added of the name of the schema in the profiles.yml file.
+    more_complex_models:
+      +schema: complexmodels # Default suffix for all models in the subfolder models/more_complex_models/.

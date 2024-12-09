@@ -1,0 +1,1 @@
+SELECT * FROM {{ ref("rentals_by_store_id_from_model_ref") }} WHERE count_rentals <= 0

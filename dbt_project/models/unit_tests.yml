@@ -1,0 +1,49 @@
+unit_tests:
+  - name: counting_films
+    description: "Some description about the unit test."
+    model: count_films_from_sources
+    given:
+      - input: source('my_pagila_db_source', 'film')
+        rows:
+          - {film_id: 1}
+          - {film_id: 1}
+          - {film_id: 2}
+          - {film_id: 3}
+          - {film_id: 4}
+          - {film_id: 2}
+          - {film_id: 1}
+    expect:
+      rows:
+        - {count_films: 4}
+
+  - name: invalid_counting_films
+    model: count_films_from_sources
+    given:
+      - input: source('my_pagila_db_source', 'film')
+        rows:
+          - {film_id: 1}
+          - {film_id: 2}
+          - {film_id: 3}
+    expect:
+      rows:
+        - {count_films: 100}
+
+  - name: rentals_by_film
+    model: rentals_by_film_with_title_and_limit
+    given:
+      - input: ref('rentals_by_film_id_from_model_ref')
+        rows:
+          - {film_id: 1, count_rentals: 15}
+          - {film_id: 3, count_rentals: 12}
+          - {film_id: 2, count_rentals: 7}
+      - input: source('my_pagila_db_source', 'film')
+        rows:
+          - {film_id: 1, title: 'Avengers'}
+          - {film_id: 2, title: 'Gladiator'}
+          - {film_id: 3, title: 'Avengers vs Gladiator : End of the Worlds'}
+          - {film_id: 4, title: 'Avengers vs Gladiators vs Predators : Endless battle'}
+    expect:
+      rows:
+        - {film_id_and_title: 'Avengers (id=1)', count_rentals: 15}
+        - {film_id_and_title: 'Avengers vs Gladiator : End of the Worlds (id=3)', count_rentals: 12}
+        - {film_id_and_title: 'Gladiator (id=2)', count_rentals: 7}

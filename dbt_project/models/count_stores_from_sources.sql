@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT store_id) AS count_stores FROM {{ source('my_pagila_db_source', 'store') }}

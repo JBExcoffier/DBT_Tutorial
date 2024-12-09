@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT film_id) AS count_films FROM film

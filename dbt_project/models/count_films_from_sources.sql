@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT film_id) AS count_films FROM {{ source('my_pagila_db_source', 'film') }}
