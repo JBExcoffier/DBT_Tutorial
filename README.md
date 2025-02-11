@@ -1,8 +1,8 @@
 # ELT with DBT : an introductory tutorial 
 
 ⭐ This repo contains the code for the **_Data Build Tool : introductory tutorial_ blogpost**. It is in two parts on Medium : 
-1. _Data Build Tool : introductory tutorial — Part 1/2_ : already available at **https://medium.com/@jb.excoffier/data-build-tool-introductory-tutorial-part-1-2-9186f5ac5947**.
-2. _Data Build Tool : introductory tutorial — Part 2/2_ : coming soon, stay tuned !
+1. _Data Build Tool : introductory tutorial — Part 1/2_ : available at **https://medium.com/@jb.excoffier/data-build-tool-introductory-tutorial-part-1-2-9186f5ac5947** for an introduction to DBT and the basics.
+2. _Data Build Tool : introductory tutorial — Part 2/2_ : available at **https://medium.com/@jb.excoffier/data-build-tool-introductory-tutorial-part-2-2-3fe4ad00422d** for an overview of advanced features (testing, documentation, etc).
 
 It is an introduction to the **_ELT_** (**E**xtract **L**oad **T**ransform) way of processing data and **_DBT_** (**D**ata **B**uild **T**ool) to manage the data transformation part. The blogpost describes the best functionalities of DBT and illustrates each of them with code from this repo.
 
